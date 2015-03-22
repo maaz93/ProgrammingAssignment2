@@ -1,12 +1,20 @@
-## Put comments here that give an overall description of what your
-## functions do
+## these functions help to calculate the inverse of a matrix
+## and also cache the result for better efficiency
 
-## Write a short comment describing this function
+## create a matrix object 'm' that has the ability to cache
+## its inverse
 
-makeCacheMatrix <- function(x = matrix()) {
-
+makeCacheMatrix <- function(m = matrix()) {
+    inverse <- NULL
+    set <- function(y) {
+        m <<- y
+        inverse <<- NULL
+    }
+    get <- function() m
+    setinv <- function(inv) inverse <<- inv
+    getinv <- function() inverse
+    return(list(set = set, get = get, setinv = setinv, getinv = getinv))
 }
-
 
 ## Write a short comment describing this function
 
