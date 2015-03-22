@@ -16,8 +16,18 @@ makeCacheMatrix <- function(m = matrix()) {
     return(list(set = set, get = get, setinv = setinv, getinv = getinv))
 }
 
-## Write a short comment describing this function
+## to find the inverse of the matrix m
+## return cached value if it exists or calculate and retunr
 
-cacheSolve <- function(x, ...) {
-        ## Return a matrix that is the inverse of 'x'
+cacheSolve <- function(m, ...) {
+    ## Return a matrix that is the inverse of 'm'
+    inverse <- m$getinv()
+    if(!is.null(inverse)) {
+        message("Getting cached data...")
+        return(inverse)
+    }
+    data <- m$get()
+    inverse <- solve(data, ...)
+    m$setinv(inverse)
+    inverse
 }
