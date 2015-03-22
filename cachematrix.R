@@ -17,7 +17,7 @@ makeCacheMatrix <- function(m = matrix()) {
 }
 
 ## to find the inverse of the matrix m
-## return cached value if it exists or calculate and retunr
+## return cached inverse if it exists or calculate and return the inverse
 
 cacheSolve <- function(m, ...) {
     ## Return a matrix that is the inverse of 'm'
